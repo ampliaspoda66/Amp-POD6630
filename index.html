@@ -59,33 +59,49 @@
       gap: 1rem;
     }
 
-    .logo-titre h1 {
-      font-size: 2.2rem;
+    /* Logo personnalisé */
+    .logo-titre {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid var(--jaune);
+      background: white;
+      padding: 4px;
+      box-shadow: 0 4px 0 var(--marron-fonce);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.08) rotate(5deg);
+    }
+
+    .logo-texte h1 {
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: 1px;
-      display: inline-block;
       background: linear-gradient(to right, var(--jaune), white, var(--vert));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      position: relative;
+      margin: 0;
     }
 
-    .logo-titre h1 i {
-      -webkit-text-fill-color: var(--jaune);
-      background: none;
-      margin-left: 10px;
-      font-size: 1.9rem;
-    }
-
-    .logo-titre p {
-      font-size: 1rem;
+    .logo-texte p {
+      font-size: 0.95rem;
       color: var(--jaune);
       font-weight: 500;
-      margin-top: 5px;
+      margin-top: 3px;
       font-style: italic;
       border-left: 4px solid var(--orange);
-      padding-left: 12px;
+      padding-left: 10px;
     }
 
     /* Menu */
@@ -787,8 +803,8 @@
         gap: 1rem;
       }
 
-      .logo-titre h1 {
-        font-size: 1.9rem;
+      .logo-texte h1 {
+        font-size: 1.7rem;
       }
 
       .presentation h2 {
@@ -818,16 +834,17 @@
         gap: 0.8rem;
       }
 
-      .logo-titre h1 {
-        font-size: 1.6rem;
+      .logo-img {
+        width: 55px;
+        height: 55px;
       }
 
-      .logo-titre h1 i {
-        font-size: 1.5rem;
+      .logo-texte h1 {
+        font-size: 1.4rem;
       }
 
-      .logo-titre p {
-        font-size: 0.9rem;
+      .logo-texte p {
+        font-size: 0.8rem;
       }
 
       nav {
@@ -992,17 +1009,17 @@
 
     /* Responsive - Petit mobile */
     @media (max-width: 480px) {
-      .logo-titre h1 {
-        font-size: 1.3rem;
+      .logo-img {
+        width: 45px;
+        height: 45px;
       }
 
-      .logo-titre h1 i {
-        font-size: 1.2rem;
-        margin-left: 5px;
+      .logo-texte h1 {
+        font-size: 1.1rem;
       }
 
-      .logo-titre p {
-        font-size: 0.8rem;
+      .logo-texte p {
+        font-size: 0.7rem;
         padding-left: 8px;
       }
 
@@ -1103,8 +1120,12 @@
   <header>
     <div class="header-content">
       <div class="logo-titre">
-        <h1>Thangba N'touon <i class="fas fa-scroll"></i></h1>
-        <p>Faso Dan Fani & Savoir-faire</p>
+        <!-- VOTRE LOGO -->
+        <img src="image2-logo.png" alt="Logo Thangba N'touon" class="logo-img">
+        <div class="logo-texte">
+          <h1>Thangba N'touon</h1>
+          <p>Faso Dan Fani & Savoir-faire</p>
+        </div>
       </div>
       <nav>
         <ul>
@@ -1129,8 +1150,7 @@
     </p>
     <p>
       Nous proposons des <strong>formations sur la teinture des fils</strong> et animons 
-      un groupe d’activités dédié à l’<strong>élevage et à l’agriculture</strong>
-      <strong>dépuis 2018 jusqu'à ce jours, nous avons pu formé 91 jeunes filles en tissaga et teinture et les installé</strong>.
+      un groupe d’activités dédié à l’<strong>élevage et à l’agriculture</strong>.
     </p>
     <div class="promotrice">
       <i class="fas fa-crown"></i> Promotrice : Mme PODA / Kambou M Hélène
@@ -1279,29 +1299,25 @@
 
     <div class="carrousel-wrapper">
       <div class="carrousel" id="carrousel">
+        <!-- IMAGE 1 : FASO DAN FANI -->
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1000&h=625&fit=crop" alt="Pagne traditionnel Faso Dan Fani burkinabé">
+          <img src="image1-faso-dan-fani.png" alt="Pagne traditionnel Faso Dan Fani burkinabé">
           <div class="slide-legende"><i class="fas fa-scroll"></i> Faso Dan Fani <span>traditionnel</span></div>
         </div>
+        <!-- IMAGE 4 : FILS DE TISSAGE -->
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=1000&h=625&fit=crop" alt="Fils burkinabé pour la teinture traditionnelle">
-          <div class="slide-legende"><i class="fas fa-palette"></i> Teinture <span>des fils</span></div>
+          <img src="image4-fils-de-tissage.png" alt="Fils de tissage burkinabé pour la teinture">
+          <div class="slide-legende"><i class="fas fa-palette"></i> Fils de <span>tissage</span></div>
         </div>
+        <!-- IMAGE 3 : AGRICULTURE -->
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1000&h=625&fit=crop" alt="Élevage communautaire">
-          <div class="slide-legende"><i class="fas fa-cow"></i> Groupe <span>élevage</span></div>
-        </div>
-        <div class="slide">
-          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1000&h=625&fit=crop" alt="Agriculture durable">
+          <img src="image3-agriculture.png" alt="Agriculture durable de l'association Thangba N'touon">
           <div class="slide-legende"><i class="fas fa-wheat-awn"></i> Agriculture <span>durable</span></div>
         </div>
+        <!-- IMAGE 2 : LOGO -->
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=1000&h=625&fit=crop" alt="Tissage traditionnel burkinabé">
-          <div class="slide-legende"><i class="fas fa-hands"></i> Tissage <span>artisanal</span></div>
-        </div>
-        <div class="slide">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&h=625&fit=crop" alt="Formation des femmes au tissage">
-          <div class="slide-legende"><i class="fas fa-users"></i> Formation <span>des femmes</span></div>
+          <img src="image2-logo.png" alt="Logo Thangba N'touon">
+          <div class="slide-legende"><i class="fas fa-star"></i> Thangba <span>N'touon</span></div>
         </div>
       </div>
 
@@ -1319,30 +1335,22 @@
         <button class="dot" data-index="1" aria-label="Slide 2"></button>
         <button class="dot" data-index="2" aria-label="Slide 3"></button>
         <button class="dot" data-index="3" aria-label="Slide 4"></button>
-        <button class="dot" data-index="4" aria-label="Slide 5"></button>
-        <button class="dot" data-index="5" aria-label="Slide 6"></button>
       </div>
     </div>
 
     <!-- Miniatures -->
     <div class="miniatures" id="miniatures">
       <div class="miniature active" data-index="0">
-        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=150&h=100&fit=crop" alt="Miniature Faso Dan Fani">
+        <img src="image1-faso-dan-fani.png" alt="Miniature Faso Dan Fani">
       </div>
       <div class="miniature" data-index="1">
-        <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=150&h=100&fit=crop" alt="Miniature teinture">
+        <img src="image4-fils-de-tissage.png" alt="Miniature fils de tissage">
       </div>
       <div class="miniature" data-index="2">
-        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=150&h=100&fit=crop" alt="Miniature élevage">
+        <img src="image3-agriculture.png" alt="Miniature agriculture">
       </div>
       <div class="miniature" data-index="3">
-        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=150&h=100&fit=crop" alt="Miniature agriculture">
-      </div>
-      <div class="miniature" data-index="4">
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=150&h=100&fit=crop" alt="Miniature tissage">
-      </div>
-      <div class="miniature" data-index="5">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=150&h=100&fit=crop" alt="Miniature formation">
+        <img src="image2-logo.png" alt="Miniature logo">
       </div>
     </div>
   </section>
