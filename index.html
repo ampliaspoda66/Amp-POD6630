@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thangba N'touon - Tissage Faso Dan Fani</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Reset et base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fef9e7;
+      color: #3e2e1f;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Couleurs personnalisées */
+    :root {
+      --rouge: #c1272d;
+      --jaune: #f5c542;
+      --vert: #2e7d32;
+      --orange: #e67e22;
+      --marron: #6b4f3c;
+      --marron-fonce: #4a3728;
+      --fond-clair: #fff8e7;
+    }
+
+    /* En-tête */
+    header {
+      background: linear-gradient(135deg, var(--marron-fonce) 0%, var(--marron) 100%);
+      color: white;
+      padding: 1.5rem 2rem;
+      border-bottom: 6px solid var(--jaune);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-titre h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-block;
+      background: linear-gradient(to right, var(--jaune), white, var(--vert));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .logo-titre h1 i {
+      -webkit-text-fill-color: var(--jaune);
+      background: none;
+      margin-left: 10px;
+      font-size: 1.9rem;
+    }
+
+    .logo-titre p {
+      font-size: 1rem;
+      color: var(--jaune);
+      font-weight: 500;
+      margin-top: 5px;
+      font-style: italic;
+      border-left: 4px solid var(--orange);
+      padding-left: 12px;
+    }
+
+    /* Menu */
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 0.5rem 0.2rem;
+      border-bottom: 3px solid transparent;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav a i {
+      color: var(--jaune);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      border-bottom-color: var(--jaune);
+      color: var(--jaune);
+    }
+
+    /* Section présentation */
+    .presentation {
+      background: linear-gradient(145deg, #ffffff 0%, var(--fond-clair) 100%);
+      padding: 3rem 2rem;
+      border-left: 12px solid var(--orange);
+      border-right: 12px solid var(--vert);
+      margin: 2rem auto;
+      max-width: 1200px;
+      border-radius: 30px 8px 30px 8px;
+      box-shadow: 0 10px 25px rgba(107, 79, 60, 0.15);
+      position: relative;
+      width: calc(100% - 4rem);
+    }
+
+    .presentation::before {
+      content: "✦ ✦ ✦";
+      color: var(--rouge);
+      font-size: 1.8rem;
+      letter-spacing: 10px;
+      display: block;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .presentation h2 {
+      font-size: 2.2rem;
+      color: var(--marron-fonce);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(230, 126, 34, 0.15);
+      padding: 0.4rem 1.5rem;
+      border-radius: 40px;
+      border: 2px dashed var(--orange);
+    }
+
+    .presentation h2 i {
+      color: var(--rouge);
+    }
+
+    .presentation p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #2d241b;
+    }
+
+    .presentation .highlight {
+      background: var(--jaune);
+      color: var(--marron-fonce);
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+    }
+
+    .presentation .promotrice {
+      font-size: 1.25rem;
+      background: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      border: 2px solid var(--rouge);
+      color: var(--marron-fonce);
+      font-weight: 600;
+      margin-top: 0.8rem;
+      box-shadow: 0 4px 0 var(--marron);
+    }
+
+    .presentation .promotrice i {
+      color: var(--rouge);
+    }
+
+    /* Cartes */
+    .cartes-section {
+      max-width: 1200px;
+      margin: 3rem auto 2rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .carte {
+      background: #ffffff;
+      border-radius: 30px 30px 30px 8px;
+      box-shadow: 10px 10px 0 var(--marron), 0 10px 20px rgba(0,0,0,0.1);
+      padding: 2rem 1.8rem 2rem 1.8rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 10px solid var(--rouge);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carte:nth-child(2) {
+      border-top-color: var(--jaune);
+    }
+
+    .carte:nth-child(3) {
+      border-top-color: var(--vert);
+    }
+
+    .carte:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 14px 14px 0 var(--marron-fonce), 0 15px 25px rgba(0,0,0,0.2);
+    }
+
+    .carte h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.8rem;
+      color: var(--marron-fonce);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 3px solid var(--orange);
+      padding-bottom: 0.5rem;
+    }
+
+    .carte h3 i {
+      font-size: 1.8rem;
+      color: var(--rouge);
+      background: rgba(245, 197, 66, 0.25);
+      padding: 10px;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .carte:nth-child(2) h3 i {
+      color: var(--orange);
+    }
+
+    .carte:nth-child(3) h3 i {
+      color: var(--vert);
+    }
+
+    .carte p {
+      font-size: 1.1rem;
+      color: #3d2b1b;
+      flex-grow: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .carte .badge {
+      align-self: flex-start;
+      background: var(--vert);
+      color: white;
+      font-weight: 600;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      border: 2px solid var(--jaune);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .carte:nth-child(1) .badge {
+      background: var(--rouge);
+    }
+    .carte:nth-child(3) .badge {
+      background: var(--orange);
+    }
+
+    /* Galerie carrousel */
+    .galerie-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .galerie-section h2 {
+      font-size: 2.2rem;
+      color: var(--marron-fonce);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      background: rgba(245, 197, 66, 0.25);
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px dashed var(--orange);
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .galerie-section h2 i {
+      color: var(--rouge);
+    }
+
+    .galerie-section .sous-titre {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--marron);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    /* Carrousel */
+    .carrousel-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 30px 8px 30px 8px;
+      overflow: hidden;
+      box-shadow: 12px 12px 0 var(--marron), 0 15px 30px rgba(0,0,0,0.25);
+      border: 6px solid var(--jaune);
+      background: var(--marron-fonce);
+    }
+
+    .carrousel {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide .slide-legende {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(74, 55, 40, 0.95), transparent);
+      color: white;
+      padding: 2rem 1.5rem 1rem;
+      font-weight: 600;
+      font-size: 1.15rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .slide .slide-legende i {
+      color: var(--jaune);
+      font-size: 1.3rem;
+    }
+
+    .slide .slide-legende span {
+      color: var(--jaune);
+    }
+
+    /* Boutons de navigation */
+    .carrousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(74, 55, 40, 0.85);
+      color: white;
+      border: 3px solid var(--jaune);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      z-index: 10;
+    }
+
+    .carrousel-btn:hover {
+      background: var(--rouge);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carrousel-btn.prev {
+      left: 15px;
+    }
+
+    .carrousel-btn.next {
+      right: 15px;
+    }
+
+    /* Points indicateurs */
+    .carrousel-dots {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+      background: rgba(74, 55, 40, 0.6);
+      padding: 8px 15px;
+      border-radius: 30px;
+      border: 2px solid var(--jaune);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+      padding: 0;
+    }
+
+    .dot.active {
+      background: var(--jaune);
+      transform: scale(1.3);
+    }
+
+    .dot:hover {
+      background: var(--orange);
+    }
+
+    /* Miniatures */
+    .miniatures {
+      display: flex;
+      gap: 10px;
+      margin-top: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .miniature {
+      width: 80px;
+      height: 60px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.2s;
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    .miniature img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .miniature:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .miniature.active {
+      border-color: var(--jaune);
+      opacity: 1;
+      box-shadow: 0 0 10px rgba(245, 197, 66, 0.6);
+    }
+
+    /* Pied de page */
+    footer {
+      background: var(--marron-fonce);
+      color: #f0e6d8;
+      padding: 2rem 2rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 10px solid var(--jaune);
+      border-bottom: 6px solid var(--vert);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .contact h4 {
+      color: var(--jaune);
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact h4 i {
+      color: var(--orange);
+    }
+
+    .contact p {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+    }
+
+    .contact p i {
+      color: var(--orange);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .contact a {
+      color: #f0e6d8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact a:hover {
+      color: var(--jaune);
+    }
+
+    .footer-copyright {
+      font-size: 0.95rem;
+      color: #c2b2a4;
+      border-top: 1px solid #5e4b3b;
+      padding-top: 1rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .footer-copyright span {
+      color: var(--jaune);
+      font-weight: 600;
+    }
+
+    /* Responsive - Tablette */
+    @media (max-width: 992px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      nav ul {
+        gap: 1.2rem;
+      }
+
+      .logo-titre h1 {
+        font-size: 1.9rem;
+      }
+
+      .presentation h2 {
+        font-size: 1.9rem;
+      }
+
+      .carrousel-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
+
+      .carrousel-dots {
+        bottom: 80px;
+      }
+    }
+
+    /* Responsive - Mobile */
+    @media (max-width: 750px) {
+      header {
+        padding: 1rem 1.2rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+
+      .logo-titre h1 {
+        font-size: 1.6rem;
+      }
+
+      .logo-titre h1 i {
+        font-size: 1.5rem;
+      }
+
+      .logo-titre p {
+        font-size: 0.9rem;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav ul {
+        gap: 0.8rem;
+        justify-content: flex-start;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.1rem;
+      }
+
+      nav a i {
+        font-size: 0.85rem;
+      }
+
+      .presentation {
+        padding: 1.5rem;
+        border-left-width: 8px;
+        border-right-width: 8px;
+        width: calc(100% - 2rem);
+        margin: 1.5rem auto;
+      }
+
+      .presentation h2 {
+        font-size: 1.5rem;
+        padding: 0.3rem 1rem;
+      }
+
+      .presentation p {
+        font-size: 1.05rem;
+      }
+
+      .presentation .promotrice {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      .cartes-section {
+        padding: 0 1rem;
+        gap: 1.5rem;
+      }
+
+      .carte h3 {
+        font-size: 1.4rem;
+      }
+
+      .carte h3 i {
+        font-size: 1.4rem;
+        width: 45px;
+        height: 45px;
+        padding: 8px;
+      }
+
+      .carte p {
+        font-size: 1rem;
+      }
+
+      .galerie-section {
+        padding: 0 1rem;
+      }
+
+      .galerie-section h2 {
+        font-size: 1.5rem;
+        white-space: normal;
+        padding: 0.5rem 1rem;
+      }
+
+      .galerie-section .sous-titre {
+        font-size: 0.95rem;
+      }
+
+      .carrousel-wrapper {
+        border-width: 4px;
+        box-shadow: 8px 8px 0 var(--marron), 0 10px 20px rgba(0,0,0,0.2);
+      }
+
+      .slide .slide-legende {
+        font-size: 0.95rem;
+        padding: 1.5rem 1rem 0.8rem;
+      }
+
+      .carrousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+
+      .carrousel-btn.prev {
+        left: 8px;
+      }
+
+      .carrousel-btn.next {
+        right: 8px;
+      }
+
+      .carrousel-dots {
+        bottom: 70px;
+        padding: 6px 12px;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      .miniature {
+        width: 60px;
+        height: 45px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      .contact h4 {
+        font-size: 1.3rem;
+      }
+
+      .contact p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Responsive - Petit mobile */
+    @media (max-width: 480px) {
+      .logo-titre h1 {
+        font-size: 1.3rem;
+      }
+
+      .logo-titre h1 i {
+        font-size: 1.2rem;
+        margin-left: 5px;
+      }
+
+      .logo-titre p {
+        font-size: 0.8rem;
+        padding-left: 8px;
+      }
+
+      nav ul {
+        gap: 0.5rem;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+      }
+
+      nav a i {
+        font-size: 0.75rem;
+      }
+
+      .presentation h2 {
+        font-size: 1.3rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+      }
+
+      .presentation p {
+        font-size: 0.95rem;
+      }
+
+      .presentation .promotrice {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .carte h3 {
+        font-size: 1.2rem;
+      }
+
+      .carte h3 i {
+        font-size: 1.2rem;
+        width: 40px;
+        height: 40px;
+        padding: 6px;
+      }
+
+      .galerie-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .carrousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+      }
+
+      .carrousel-dots {
+        bottom: 55px;
+        padding: 5px 10px;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      .slide .slide-legende {
+        font-size: 0.85rem;
+        padding: 1.2rem 0.8rem 0.6rem;
+      }
+
+      .miniature {
+        width: 50px;
+        height: 38px;
+      }
+
+      .contact h4 {
+        font-size: 1.15rem;
+      }
+
+      .contact p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="logo-titre">
+        <h1>Thangba N'touon <i class="fas fa-scroll"></i></h1>
+        <p>Faso Dan Fani & Savoir-faire</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="#presentation"><i class="fas fa-info-circle"></i> Présentation</a></li>
+          <li><a href="#formations"><i class="fas fa-graduation-cap"></i> Formations</a></li>
+          <li><a href="#elevage"><i class="fas fa-seedling"></i> Élevage & Agri</a></li>
+          <li><a href="#galerie"><i class="fas fa-images"></i> Galerie</a></li>
+          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section présentation -->
+  <section class="presentation" id="presentation">
+    <h2><i class="fas fa-hands"></i> Notre association</h2>
+    <p>
+      Basée à <span class="highlight">Gaoua, secteur 2 – quartier Youmpi</span>, 
+      l’association <strong>Thangba N'touon</strong> œuvre pour la valorisation du 
+      <strong>tissage du Faso Dan Fani</strong>, le pagne burkinabé par excellence.
+    </p>
+    <p>
+      Nous proposons des <strong>formations sur la teinture des fils</strong> et animons 
+      un groupe d’activités dédié à l’<strong>élevage et à l’agriculture</strong>.
+    </p>
+    <div class="promotrice">
+      <i class="fas fa-crown"></i> Promotrice : Mme PODA / Kambou M Hélène
+    </div>
+  </section>
+
+  <!-- 3 cartes -->
+  <section class="cartes-section" id="formations">
+    <div class="carte">
+      <h3><i class="fas fa-scroll"></i> Tissage Faso Dan Fani</h3>
+      <p>
+        Découvrez l’art du tissage traditionnel burkinabé. Nos artisans perpétuent 
+        des techniques transmises de génération en génération pour créer des pagnes 
+        authentiques et colorés, symbole de notre culture.
+      </p>
+      <div class="badge"><i class="fas fa-award"></i> Savoir-faire local</div>
+    </div>
+
+    <div class="carte">
+      <h3><i class="fas fa-palette"></i> Formation teinture</h3>
+      <p>
+        Nous formons les femmes et les jeunes à la teinture artisanale des fils. 
+        Apprenez à maîtriser les couleurs naturelles et les motifs traditionnels 
+        pour donner vie à vos créations textiles.
+      </p>
+      <div class="badge"><i class="fas fa-tools"></i> Ateliers pratiques</div>
+    </div>
+
+    <div class="carte" id="elevage">
+      <h3><i class="fas fa-seedling"></i> Élevage & Agriculture</h3>
+      <p>
+        Notre groupe d’activités développe des projets d’élevage et d’agriculture 
+        durable. Ensemble, nous renforçons l’autonomie alimentaire et créons des 
+        opportunités économiques pour la communauté.
+      </p>
+      <div class="badge"><i class="fas fa-chart-line"></i> Développement local</div>
+    </div>
+  </section>
+
+  <!-- Galerie carrousel -->
+  <section class="galerie-section" id="galerie">
+    <h2><i class="fas fa-camera-retro"></i> Notre Galerie</h2>
+    <p class="sous-titre">Découvrez nos réalisations et notre savoir-faire en images</p>
+
+    <div class="carrousel-wrapper">
+      <div class="carrousel" id="carrousel">
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1000&h=625&fit=crop" alt="Pagne traditionnel Faso Dan Fani burkinabé">
+          <div class="slide-legende"><i class="fas fa-scroll"></i> Faso Dan Fani <span>traditionnel</span></div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=1000&h=625&fit=crop" alt="Fils burkinabé pour la teinture traditionnelle">
+          <div class="slide-legende"><i class="fas fa-palette"></i> Teinture <span>des fils</span></div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1000&h=625&fit=crop" alt="Élevage communautaire">
+          <div class="slide-legende"><i class="fas fa-cow"></i> Groupe <span>élevage</span></div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1000&h=625&fit=crop" alt="Agriculture durable">
+          <div class="slide-legende"><i class="fas fa-wheat-awn"></i> Agriculture <span>durable</span></div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=1000&h=625&fit=crop" alt="Tissage traditionnel burkinabé">
+          <div class="slide-legende"><i class="fas fa-hands"></i> Tissage <span>artisanal</span></div>
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&h=625&fit=crop" alt="Formation des femmes au tissage">
+          <div class="slide-legende"><i class="fas fa-users"></i> Formation <span>des femmes</span></div>
+        </div>
+      </div>
+
+      <!-- Boutons de navigation -->
+      <button class="carrousel-btn prev" id="prevBtn" aria-label="Image précédente">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="carrousel-btn next" id="nextBtn" aria-label="Image suivante">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Points indicateurs -->
+      <div class="carrousel-dots" id="dots">
+        <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="dot" data-index="2" aria-label="Slide 3"></button>
+        <button class="dot" data-index="3" aria-label="Slide 4"></button>
+        <button class="dot" data-index="4" aria-label="Slide 5"></button>
+        <button class="dot" data-index="5" aria-label="Slide 6"></button>
+      </div>
+    </div>
+
+    <!-- Miniatures -->
+    <div class="miniatures" id="miniatures">
+      <div class="miniature active" data-index="0">
+        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=150&h=100&fit=crop" alt="Miniature Faso Dan Fani">
+      </div>
+      <div class="miniature" data-index="1">
+        <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=150&h=100&fit=crop" alt="Miniature teinture">
+      </div>
+      <div class="miniature" data-index="2">
+        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=150&h=100&fit=crop" alt="Miniature élevage">
+      </div>
+      <div class="miniature" data-index="3">
+        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=150&h=100&fit=crop" alt="Miniature agriculture">
+      </div>
+      <div class="miniature" data-index="4">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=150&h=100&fit=crop" alt="Miniature tissage">
+      </div>
+      <div class="miniature" data-index="5">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=150&h=100&fit=crop" alt="Miniature formation">
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="contact">
+        <h4><i class="fas fa-address-book"></i> Contact</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Gaoua, secteur 2 – quartier Youmpi, Burkina Faso</p>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:+22666300040">+226 66 30 00 40</a></p>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:+22671912074">+226 71 91 20 74</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:contact@thangbantouon.bf">contact@thangbantouon.bf</a></p>
+      </div>
+      <div class="contact">
+        <h4><i class="fas fa-clock"></i> Horaires</h4>
+        <p><i class="fas fa-calendar-day"></i> Lundi – Vendredi : 8h – 17h</p>
+        <p><i class="fas fa-calendar-day"></i> Samedi : 9h – 13h</p>
+        <p><i class="fas fa-calendar-times"></i> Dimanche : fermé</p>
+      </div>
+      <div class="contact">
+        <h4><i class="fas fa-share-alt"></i> Suivez-nous</h4>
+        <p><i class="fab fa-facebook"></i> <a href="#">Facebook</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="#">WhatsApp</a></p>
+        <p><i class="fab fa-instagram"></i> <a href="#">Instagram</a></p>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 <span>Thangba N'touon</span> – Association pour le tissage, la teinture, l'élevage et l'agriculture. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const carrousel = document.getElementById('carrousel');
+      const slides = carrousel.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      const miniatures = document.querySelectorAll('.miniature');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+      let autoplayInterval;
+
+      function updateCarrousel(index) {
+        // Gestion des limites
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+
+        currentIndex = index;
+
+        // Déplacement du carrousel
+        carrousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Mise à jour des points
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+
+        // Mise à jour des miniatures
+        miniatures.forEach((mini, i) => {
+          mini.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      function nextSlide() {
+        updateCarrousel(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        updateCarrousel(currentIndex - 1);
+      }
+
+      // Démarrer le défilement automatique
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayInterval) {
+          clearInterval(autoplayInterval);
+        }
+      }
+
+      // Événements boutons
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAutoplay();
+      });
+
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAutoplay();
+      });
+
+      // Événements points
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'));
+          updateCarrousel(index);
+          startAutoplay();
+        });
+      });
+
+      // Événements miniatures
+      miniatures.forEach(mini => {
+        mini.addEventListener('click', () => {
+          const index = parseInt(mini.getAttribute('data-index'));
+          updateCarrousel(index);
+          startAutoplay();
+        });
+      });
+
+      // Pause au survol
+      const wrapper = document.querySelector('.carrousel-wrapper');
+      wrapper.addEventListener('mouseenter', stopAutoplay);
+      wrapper.addEventListener('mouseleave', startAutoplay);
+
+      // Support du clavier
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          startAutoplay();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          startAutoplay();
+        }
+      });
+
+      // Support tactile (swipe)
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+      }, { passive: true });
+
+      wrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoplay();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+
+      // Initialisation
+      updateCarrousel(0);
+      startAutoplay();
+    })();
+  </script>
+
+</body>
+</html>
